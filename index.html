@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisión de Sala</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS del formato PDF/JPG -->
+    <link rel="stylesheet" href="reporte.css">
+
+    <!-- Signature Pad -->
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+</head>
+
+<body class="p-3">
+
+    <div class="container">
+
+        <h2 class="text-center mb-4">Supervisión de Sala</h2>
+
+        <!-- ========== FORMULARIO PRINCIPAL ========== -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">Datos Generales</div>
+            <div class="card-body">
+
+                <form id="supervision-form">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Nombre</label>
+                            <input id="nombre" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Puesto</label>
+                            <select id="puesto" class="form-control">
+                                <option value="">Seleccione</option>
+                                <option>Back Up</option>
+                                <option>Supervisor</option>
+                                <option>Coordinador</option>
+                                <option>Gerente</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Sala</label>
+                            <input id="sala" class="form-control">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Total máquinas rentadas</label>
+                            <input id="maquinas" class="form-control">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Fecha</label>
+                            <input id="fecha" type="date" class="form-control">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Turno</label>
+                            <select id="turno" class="form-control">
+                                <option value="">Seleccione</option>
+                                <option>Mañana</option>
+                                <option>Tarde</option>
+                                <option>Nocturno</option>
+                            </select>
+                        </div>
+
+                        
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+        <!-- ========== CHECKLIST ========== -->
+        <div class="card mb-4">
+            <div class="card-header bg-secondary text-white">Checklist</div>
+
+            <div class="card-body">
+                <form id="checklist-form" class="row">
+
+                    <div class="col-md-4 mb-3">
+                        <label>Alineación de máquinas</label>
+                        <select data-id="alineacion-terminales"class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Limpieza de muebles</label>
+                        <select data-id="limpieza-muebles" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Revisión touch/audio</label>
+                        <select data-id="revision-touch-audio" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Limpieza de botoneras</label>
+                        <select data-id="limpieza-botoneras" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Degradación LEDs</label>
+                        <select data-id="revision-degradacion-leds" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Detalles estéticos</label>
+                        <select data-id="revision-detalles-esteticos" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Placas NOM</label>
+                        <select data-id="revision-placas" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Estructuras signs</label>
+                        <select data-id="revision-estructuras" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Alineación pantallas</label>
+                        <select data-id="alineacion-pantallas" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Cinta gaffer</label>
+                        <select data-id="cinta-gaffer" class="form-control turno">
+                                <option value="">Seleccione</option>
+                                <option>OK</option>
+                                <option>Detalles</option>
+                            </select>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- ========== FIRMA ========== -->
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">Firma</div>
+            <div class="card-body">
+                <div class="signature-container" style="border:1px solid #aaa; height:200px;">
+                    <canvas id="signature-pad"></canvas>
+                </div>
+                <button id="limpiar-firma" class="btn btn-warning mt-2">Limpiar</button>
+            </div>
+        </div>
+
+        <!-- ========== BOTONES ========== -->
+        <div class="text-center mb-5">
+            <button id="btn-pdf" class="btn btn-danger">Generar PDF</button>
+            <button id="btn-jpg" class="btn btn-warning">Generar JPG</button>
+            <button id="btn-txt" type="button">Generar TXT</button>
+        </div>
+
+    </div>
+
+    <!-- ========= REPORTE OCULTO (PDF/JPG) ========= -->
+    <div id="reporte-checklist"></div>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- html2canvas + jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Tu script -->
+    <script src="script.js"></script>
+    <script>
+let formularioModificado = false;
+
+document.querySelectorAll("input, textarea, select").forEach(element => {
+    element.addEventListener("change", () => {
+        formularioModificado = true;
+    });
+});
+
+window.addEventListener("beforeunload", function (e) {
+    if (formularioModificado) {
+        e.preventDefault();
+        e.returnValue = "";
+    }
+});
+</script>
+
+</body>
+</html>

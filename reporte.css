@@ -1,0 +1,37 @@
+body {
+    overscroll-behavior: none;
+}
+
+#reporte-checklist {
+    width: 800px;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#reporte-checklist h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#reporte-checklist table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#reporte-checklist td,
+#reporte-checklist th {
+    border: 1px solid #000;
+    padding: 8px;
+}
+
+.header-cell {
+    background: #d9e5f2;
+}
+
+.title-bar {
+    background: #2f56a6;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
